@@ -1,10 +1,15 @@
-import {
-  Form,
-  Links,
-  Meta,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
+import { Links, Meta, Scripts, ScrollRestoration } from "@remix-run/react";
+import type { LinksFunction } from "@remix-run/node";
+import appStylesHref from "./app.scss?url";
+import { Outlet } from "@remix-run/react";
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: appStylesHref },
+  { rel: "preload", href: "/js/gsap.min.js", as: "script" },
+  { rel: "preload", href: "/js/Flip.min.js", as: "script" },
+  { rel: "preload", href: "/js/CustomEase.min.js", as: "script" },
+  { rel: "preload", href: "/js/split-type.min.js", as: "script" },
+];
 
 export default function App() {
   return (
@@ -12,40 +17,17 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Tuan Ng.</title>
         <Meta />
         <Links />
       </head>
       <body>
-        <div id="sidebar">
-          <h1>Remix Contacts</h1>
-          <div>
-            <Form id="search-form" role="search">
-              <input
-                id="q"
-                aria-label="Search contacts"
-                placeholder="Search"
-                type="search"
-                name="q"
-              />
-              <div id="search-spinner" aria-hidden hidden={true} />
-            </Form>
-            <Form method="post">
-              <button type="submit">New</button>
-            </Form>
-          </div>
-          <nav>
-            <ul>
-              <li>
-                <a href={`/contacts/1`}>Your Name</a>
-              </li>
-              <li>
-                <a href={`/contacts/2`}>Your Friend</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
+        <Outlet />
         <ScrollRestoration />
+        <script src="/js/gsap.min.js" />
+        <script src="/js/Flip.min.js" />
+        <script src="/js/CustomEase.min.js" />
+        <script src="/js/split-type.min.js" />
         <Scripts />
       </body>
     </html>
