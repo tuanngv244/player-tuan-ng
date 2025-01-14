@@ -1,5 +1,52 @@
+//@ts-nocheck
+import { useEffect } from "react";
 import "~/styles/home.scss";
 export default function Home() {
+  useEffect(() => {
+    // document.addEventListener("DOMContentLoaded", () => {
+    console.log("hello", document.querySelector(".container"));
+    CustomEase.create(
+      "hop",
+      "M0, 0 C0.355,0.22 0.448,0.079 0.5,0.5 0.542,0.846 0.615,1 1,1"
+    );
+    CustomEase.create(
+      "hop2",
+      "M0,0 C0.078,0.617 0.114,0.716 0.255,0.828 0.373,0.922 0.561,1 1,1"
+    );
+
+    const splitH2 = new SplitType(".site-info h2", { types: "lines" });
+
+    splitH2.lines.forEach((line) => {
+      const text = line.textContent;
+      const wrapper = document.createElement("div");
+      wrapper.className = "line";
+      const span = document.createElement("span");
+      span.textContent = text;
+      wrapper.appendChild(span);
+      line.parentNode.replaceChild(wrapper, line);
+    });
+
+    const mainTl = gsap.timeline();
+    const revealerTl = gsap.timeline();
+    const scaleTl = gsap.timeline();
+
+    revealerTl
+      .to(".r-1", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration: 1.5,
+        ease: "hop",
+      })
+      .to(
+        ".r-2",
+        {
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0 100%)",
+          duration: 1.5,
+          ease: "hop",
+        },
+        "<"
+      );
+    // });
+  }, []);
   return (
     <div className="container">
       <div className="revealers">

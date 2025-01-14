@@ -3,7 +3,7 @@
 ## Video Link
 
 - link: https://www.youtube.com/watch?v=B_GrYiZBp2I&t=36s
-- duration: 08:05
+- duration: 10:05
 
 ### DIY
 
