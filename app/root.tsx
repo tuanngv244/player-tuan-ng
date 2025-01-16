@@ -2,6 +2,7 @@ import { Links, Meta, Scripts, ScrollRestoration } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import appStylesHref from "./app.scss?url";
 import { Outlet } from "@remix-run/react";
+import Header from "./components/organisms/header";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appStylesHref },
@@ -22,6 +23,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Header />
         <Outlet />
         <ScrollRestoration />
         <script src="/js/gsap.min.js" />

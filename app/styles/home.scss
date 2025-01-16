@@ -75,8 +75,8 @@ img {
 
 .img.stacked {
   position: relative;
-  width: 150px;
-  height: 100px;
+  width: 200px;
+  height: 150px;
   transform: none;
   top: auto;
   left: auto;
@@ -90,54 +90,17 @@ img {
   height: 100%;
 }
 
-.site-logo {
-  position: absolute;
-  top: 2em;
-  left: 2em;
-  display: flex;
-  gap: 1em;
-  h1 {
-    color: $black-color;
-    font-family: $primary-font;
-    font-size: 4vw;
-    font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-    sup {
-      position: absolute;
-      top: -0.125em;
-      font-size: 2rem;
-    }
-  }
-}
-
-.nav {
-  position: absolute;
-  right: 0;
-  width: 50%;
-  padding: 2em;
-  display: flex;
-  justify-content: flex-end;
-  gap: 1em;
-  .nav-item {
-    p {
-      position: relative;
-      font-size: $font-16;
-      font-weight: 500;
-    }
-  }
-}
-
 .cover-img {
   position: absolute;
   right: 2em;
   bottom: 2em;
-  width: 40%;
-  height: 60%;
+  width: 35%;
+  max-height: 750px;
   // clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
   img {
     filter: saturate(0);
+    object-fit: contain;
   }
 }
 
@@ -145,7 +108,7 @@ img {
   position: absolute;
   bottom: 2em;
   left: 2em;
-  width: 50%;
+  width: 60%;
   height: 50%;
   display: flex;
   flex-direction: column;
@@ -184,10 +147,14 @@ img {
 .address,
 .socials {
   flex: 1;
-  p {
+  a {
     line-height: 1.25;
-    font-size: $font-12;
+    font-size: $font-14;
     font-weight: 500;
+    color: $black-color;
+    text-decoration: none;
+    position: relative;
+    display: block;
   }
 }
 
@@ -198,8 +165,9 @@ img {
 }
 
 .word h1,
-.nav-item p,
+.nav-item a,
 .site-info h2 .line span,
+.line a,
 .line p {
   position: relative;
   will-change: transform;
@@ -211,7 +179,8 @@ img {
 }
 
 .word h1,
-.nav-item p,
+.nav-item a,
+.line a,
 .line p {
   transform: translateY(100%);
 }

@@ -39,4 +39,28 @@ body {
   height: 100%;
   background-color: $white-color;
   font-family: $primary-font;
+  font-size: 65%;
+}
+
+.hover-line {
+  &:after {
+    content: "";
+    width: 0%;
+    height: 1px;
+    position: absolute;
+    right: 0;
+    left: auto;
+    bottom: 0;
+    display: block;
+    background-color: $black-color;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+      left: 0;
+      right: auto;
+      transition: all 0.3s ease-in-out;
+    }
+  }
 }
